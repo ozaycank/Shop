@@ -7,5 +7,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./product.component.css']
 })
 export class ProductComponent {
-  name = "Laptopp"
+  title="Product List"
+  products :any[] = [{id:1,name:"Laptop",price:10000,categoryId:1,description:"Lenovo Legion"},{id:2,name:"Camera",price:2000,categoryId:2,description:"A4 Tech"}]
 }
