@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from './product';
-declare let alertify: any;
+import { AlertifyService } from '../services/alertify.service';
 
 @Component({
   selector: 'app-product',
@@ -9,7 +9,7 @@ declare let alertify: any;
   styleUrls: ['./product.component.css']
 })
 export class ProductComponent {
-  constructor() {}
+  constructor(private  alertifyService:AlertifyService) {}
   title = "Product List";
   filterText = "";
   products: Product[] = [
@@ -18,6 +18,6 @@ export class ProductComponent {
   ];
 
   addToCart(product: Product) {
-    alertify.success(product.name + " Added to Cart!");
+    this.alertifyService.success(product.name  +"added")
   }
 }
