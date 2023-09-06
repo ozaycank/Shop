@@ -1,23 +1,27 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from './product';
 import { AlertifyService } from '../services/alertify.service';
-
+import { HttpClient } from '@angular/common/http';
+import { ProductService } from '../services/product.service';
 @Component({
   selector: 'app-product',
-  template: `<p>{{ name }}</p>`,
   templateUrl: './product.component.html',
-  styleUrls: ['./product.component.css']
+  styleUrls: ['./product.component.css'],
+  providers:[ProductService]
+  
 })
-export class ProductComponent {
-  constructor(private  alertifyService:AlertifyService) {}
+export class ProductComponent implements OnInit {
+  constructor(private alertifyService: AlertifyService, private productService:ProductService) { }
   title = "Product List";
   filterText = "";
-  products: Product[] = [
-    { id: 1, name: "Laptop", price: 10000, categoryId: 1, description: "Lenovo Legion", imageUrl: "" },
-    { id: 2, name: "Camera", price: 2000, categoryId: 2, description: "A4 Tech", imageUrl: "" }
-  ];
+  products: Product[] = [];
+  
+  ngOnInit() {
+    this.productService.getProducts().subscribe(data=>this.products = data)
+  }
+  
 
   addToCart(product: Product) {
-    this.alertifyService.success(product.name  +"added")
+    this.alertifyService.success(product.name + " is added")
   }
 }
