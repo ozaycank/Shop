@@ -1,4 +1,7 @@
 <h3>{{ title }}</h3>
+<div class="list-group">
+    <a class="list-group-item">All Products</a>
+</div>
 <div class="list-group" *ngFor="let cat of categories">
-    <a class="list-group-item">{{ cat.name }}</a>
+    <a class="list-group-item" routerLink="products/category/{{cat.id}}">{{ cat.name }}</a>
 </div>
