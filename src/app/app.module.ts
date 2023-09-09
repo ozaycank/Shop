@@ -8,6 +8,7 @@ import { ProductComponent } from './product/product.component';
 import { NavComponent } from './nav/nav.component';
 import { CategoryComponent } from './category/category.component';
 import { ProductService } from './services/product.service';
+import { ProductAddClassicComponent } from './product/product-add-classic/product-add-classic.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { ProductService } from './services/product.service';
     ProductComponent,
     NavComponent,
     CategoryComponent,
+    ProductAddClassicComponent,
   ],
   imports: [
     BrowserModule,
