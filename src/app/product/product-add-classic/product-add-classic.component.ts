@@ -13,7 +13,7 @@ import { AlertifyService } from 'src/app/services/alertify.service';
   providers: [CategoryService,ProductService]
 })
 export class ProductAddClassicComponent implements OnInit {
-  constructor(private categoryService:CategoryService, private producService:ProductService, private alertifyService:AlertifyService){}
+  constructor(private categoryService:CategoryService, private productService:ProductService, private alertifyService:AlertifyService){}
   model : Product = new Product();
 
   categories: Category[]=[];
@@ -21,6 +21,6 @@ export class ProductAddClassicComponent implements OnInit {
     this.categoryService.getCategories().subscribe(data=>this.categories = data)
   }
   add(form:NgForm){
-    this.producService.addProduct(this.model).subscribe(data=>{this.alertifyService.success(data.name+ " added succesfully.")});
+    this.productService.addProduct(this.model).subscribe(data=>{this.alertifyService.success(data.name+ " added succesfully.")});
   }
 }
