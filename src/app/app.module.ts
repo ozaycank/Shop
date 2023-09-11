@@ -10,6 +10,9 @@ import { CategoryComponent } from './category/category.component';
 import { ProductService } from './services/product.service';
 import { ProductAddClassicComponent } from './product/product-add-classic/product-add-classic.component';
 import { ProductAddReactiveComponent } from './product/product-add-reactive/product-add-reactive.component';
+import { LoginComponent } from './login/login.component';
+import { AccountService } from './services/account.service';
+import { LoginGuard } from './login/login.guard';
 
 @NgModule({
   declarations: [
@@ -19,6 +22,7 @@ import { ProductAddReactiveComponent } from './product/product-add-reactive/prod
     CategoryComponent,
     ProductAddClassicComponent,
     ProductAddReactiveComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -27,7 +31,7 @@ import { ProductAddReactiveComponent } from './product/product-add-reactive/prod
     HttpClientModule,
     ReactiveFormsModule
   ],
-  providers: [ProductService],
+  providers: [ProductService,AccountService,LoginGuard],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

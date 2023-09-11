@@ -9,7 +9,12 @@
         </button>
         <div class="navbar-nav">
             <div class="nav-item text-nowrap">
-                <a class="nav-link px-3" href="#">Sign out</a>
+                <a *ngIf="isLoggedin()==false" class="nav-link px-3" routerLink="/login">
+                  Login
+                </a>
+                <a *ngIf="isLoggedin()==true" (click)="logOut()" class="nav-link px-3">
+                  Log Out
+                </a>
             </div>
         </div>
     </header>
